@@ -10,10 +10,16 @@ interface IModal {
 })
 export class ModalService {
 
-    public modals: IModal[] = [];
+    private modals: IModal[] = [];
 
-    constructor() {  
+    constructor() {}
 
+    public unregister(id: string) {
+        this.modals = this.modals.filter(
+            element => {
+                element.id !== id
+            }
+        )
     }
 
     public register(id: string) {
