@@ -8,9 +8,6 @@
         duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
 />
 <ng-container *ngIf="control.touched && control.dirty">
-    <p class="text-red-500" *ngIf="control.errors?.maxLength && control.errors?.minLength">
-        The phone number is too short.
-    </p>
     <p class="text-red-500" *ngIf="control.errors?.pattern">
         Your password should contain at least
         one lower case character, one upper case character,
