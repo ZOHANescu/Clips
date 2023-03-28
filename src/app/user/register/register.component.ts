@@ -9,6 +9,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 export class RegisterComponent {
 
+    showAlert = false;
+    alertMessage = "Please wait! Your account is being created.";
+    alertColor = "blue";
+
+    register() {
+        this.showAlert = true;
+        this.alertMessage = "Please wait! Your account is being created.";
+        this.alertColor = "blue";
+    }
+
     name = new FormControl('', [
         Validators.required,
         Validators.minLength(3)
