@@ -34,7 +34,7 @@ export class RegisterComponent {
     ])
     password = new FormControl('', [
         Validators.required,
-        Validators.pattern(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$/gm)
+        Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$")
     ])
     confirmPassword =  new FormControl('', [
         Validators.required,
