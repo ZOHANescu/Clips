@@ -7,11 +7,20 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+    showAlert = false;
+    alertMessage = 'Trying to login. Please wait...';
+    alertColor = 'green'
+
+    login() {
+        this.showAlert = true;
+        this.alertMessage = 'Trying to login. Please wait...';
+        this.alertColor = 'green'
+    }
+
     credentials = {
         email: '',
         password: ''
     }
 
     constructor() {}
-
 }
