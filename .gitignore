@@ -12,6 +12,13 @@ npm-debug.log
 yarn-error.log
 /template
 
+# Firebase
+src/environments/
+
+# Config files
+
+
+
 # IDEs and editors
 .idea/
 .project
