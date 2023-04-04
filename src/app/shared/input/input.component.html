@@ -1,4 +1,4 @@
-<input 
+<input
     [formControl]="control"
     [type]="type"
     [placeholder]="placeholder"
@@ -32,5 +32,11 @@
     </p>
     <p class="text-red-500" *ngIf="control.errors?.max">
         Value too high.
+    </p>
+    <p class="text-red-500" *ngIf="control.errors?.noMatch">
+        Password is not matching.
+    </p>
+    <p class="text-red-500" *ngIf="control.errors?.emailTaken" >
+        Email is taken.
     </p>
 </ng-container>
