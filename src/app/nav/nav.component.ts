@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ModalService } from '../services/modal.service';
 import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -9,6 +9,10 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
     styleUrls: ['./nav.component.css'],
 })
 export class NavComponent {
+
+    @Input() routerLinkActiveOptions = {
+        exact: true
+    };
 
     constructor(
         public modal: ModalService,
