@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Router } from '@angular/router';
 import { delay, map, Observable } from 'rxjs';
 import IUser from '../models/user.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +18,8 @@ export class AuthService {
     constructor(
         private auth: AngularFireAuth,
         private db: AngularFirestore,
-        private router: Router
+        private router: Router,
+        private route: ActivatedRoute
     ) {
         this.usersCollection = db.collection('users');
         this.isAuthenticated$ = auth.user.pipe(
