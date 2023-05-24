@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { v4 as uuid } from 'uuid';
 
 @Component({
     selector: 'app-upload',
@@ -6,24 +8,43 @@ import { Component } from '@angular/core';
     styleUrls: ['./upload.component.css'],
 })
 export class UploadComponent {
-
+    
     isDragOver: boolean = false;
     file: File | null = null;
+    isUploadFileFormVisible = false;
+    title = new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+    ]);
+    uploadVideoFormGroup = new FormGroup({
+        title: this.title
+    });
+    
+    constructor(
+
+    ) { }
 
     setDragOver(state: boolean) {
         this.isDragOver = state;
     }
 
-    handleUpload($event: Event) {
+    storeFile($event: Event) {
         this.setDragOver(false);
         this.file = ($event as DragEvent).dataTransfer?.files.item(0) ?? null;
 
+        console.log(this.file); // content file
 
-        console.log(this.file);
+        if (!this.file || this.file.type !== 'video/mp4') {
+            return;
+        }
 
-        if(!this.file || this.file.type !== 'video/mp4') {
-            console.log('wrong file format');
-        } else console.log('good file');
+        this.title.setValue(this.file.name.replace(/\.[^/.]+$/, ''));
+        this.isUploadFileFormVisible = true;
+    }
+
+    uploadVideo() {
+        const clipFileName = uuid();
+        const clipPath = `clips/${clipFileName}.mp4`;
 
     }
 }

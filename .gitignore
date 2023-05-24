@@ -11,7 +11,7 @@
 npm-debug.log
 yarn-error.log
 /template
-
+.package-lock.json
 # Firebase
 src/environments/
 
