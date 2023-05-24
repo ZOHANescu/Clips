@@ -21,7 +21,7 @@ export class RegisterComponent {
     constructor(
         private auth: AuthService,
         private emailTaken: EmailTaken
-    ) {}
+    ) { }
 
     async register() {
 
@@ -33,7 +33,7 @@ export class RegisterComponent {
         try {
 
             await this.auth.createUser(this.registerForm.value as IUser);
-                
+
         } catch (error) {
 
             console.error(error);
@@ -72,7 +72,7 @@ export class RegisterComponent {
         // Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$")
         // Validators.pattern("^(?=.{4,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$")
     ])
-    confirmPassword =  new FormControl('', [
+    confirmPassword = new FormControl('', [
         Validators.required,
     ])
     phoneNumber = new FormControl('', [
